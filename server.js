@@ -5,25 +5,26 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
+
 const PORT = process.env.PORT || 8000;
+
+const studentRouter = require("./routes/students");
+
 const DATABASE_URL = process.env.DATABASE_URL;
 
-app.use(express.json());
 app.use(cors());
-
 
 mongoose.connect(DATABASE_URL);
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Database Connection Established"));
 
+app.use(express.json());
+app.use("/students", studentRouter);
 
 app.get("/", (request, response) => {
-	response.send(`API is running on ${PORT}`)
-})
-
-const studentRouter = require("./routes/students");
-app.use("/students", studentRouter);
+	response.send(`API is running on ${PORT}`);
+});
 
 app.listen(PORT, () => {
 	console.log(`Server running on ${PORT}`);
