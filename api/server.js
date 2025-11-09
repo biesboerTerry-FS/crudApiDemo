@@ -5,14 +5,13 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 8000;
 
 const studentRouter = require("./routes/students");
 
 const DATABASE_URL = process.env.DATABASE_URL;
-
-app.use(cors());
 
 mongoose.connect(DATABASE_URL);
 const db = mongoose.connection;
