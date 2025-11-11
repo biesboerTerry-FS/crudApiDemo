@@ -1,30 +1,30 @@
-GET http://localhost:8000/students
+GET http://localhost:8000/api/v1/students
 
 ###
 
-GET http://localhost:8000/students/690ea3e16ce3d463665cf2d7
+GET http://localhost:8000/api/v1/students/69114088f6800818904d8367
 
 ###
 
-POST http://localhost:8000/students
+POST http://localhost:8000/api/v1/students
 Content-Type: application/json
 
 {
-   "name": "Terry Biesboer",
+   "name": "Tony Stark",
    "class": "DWA"
 }
 
 
 ###
 
-DELETE http://localhost:8000/students/690ea0b66ce3d463665cf2d5
+DELETE http://localhost:8000/api/v1/students/690ea0b66ce3d463665cf2d5
 
 ###
 
-PATCH http://localhost:8000/students/690ea5a2f8ec99cfa481af8f
+PATCH http://localhost:8000/api/v1/students/69114088f6800818904d8367
 Content-Type: application/json
 
 {
-   "name": "Terry Biesboer Junior Junior",
+   "name": "Bruce Wayne",
    "class": "NWA"
 }

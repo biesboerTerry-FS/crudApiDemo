@@ -19,10 +19,13 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Database Connection Established"));
 
 app.use(express.json());
-app.use("/students", studentRouter);
 
-app.get("/", (request, response) => {
-	response.send(`API is running on ${PORT}`);
+app.use("/api/v1/students", studentRouter);
+
+app.use(express.static(path.join(__dirname, "../reactjs/build/")));
+
+app.use((request, response) => {
+	response.sendFile(path.join(__dirname, "../reactjs/build/", "index.html"));
 });
 
 app.listen(PORT, () => {

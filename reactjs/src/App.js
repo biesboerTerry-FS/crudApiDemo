@@ -9,7 +9,8 @@ function App() {
 	const API_BASE =
 		process.env.NODE_ENV === "development"
 			? `http://localhost:8000/api/v1`
-			: process.env.REACT_APP_BASE_URL;
+			: `https://crudapidemo-becc90297b0f.herokuapp.com/api/v1`;
+	// : process.env.REACT_APP_BASE_URL;
 
 	let ignore = false;
 
@@ -43,9 +44,20 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<h1>Students:</h1>
-				<ul>
+				{/* <ul>
 					<li>Students</li>
-				</ul>
+				</ul> */}
+				{loading && <p>Loading...</p>}
+				{error && <p style={{ color: "red" }}>Error: {error}</p>}
+				{students && (
+					<ul>
+						{students.map((student) => (
+							<li key={student._id}>
+								{student.name} - {student.class}
+							</li>
+						))}
+					</ul>
+				)}
 			</header>
 		</div>
 	);
