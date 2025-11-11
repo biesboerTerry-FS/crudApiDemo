@@ -44,10 +44,10 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<h1>Students:</h1>
-				<ul>
+				{/* <ul>
 					<li>Students</li>
-				</ul>
-				{/* {loading && <p>Loading...</p>}
+				</ul> */}
+				{loading && <p>Loading...</p>}
 				{error && <p style={{ color: "red" }}>Error: {error}</p>}
 				{students && (
 					<ul>
@@ -57,7 +57,7 @@ function App() {
 							</li>
 						))}
 					</ul>
-				)} */}
+				)}
 			</header>
 		</div>
 	);
